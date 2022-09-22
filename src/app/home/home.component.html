@@ -1,1 +1,18 @@
-<div class="content" role="main"></div>
+<div class="content" role="main">
+  <h2>Welcome</h2>
+  <div class="card-container">
+    <a routerLink="/navigator" class="card">
+      <span>See transactions</span>
+    </a>
+  </div>
+  <div>You have {{ total }} transactions</div>
+  <div class="card-container">
+    <div *ngFor="let tab of objectKeys(navigatorTabs)" class="card card-small">
+      <h4>{{ amounts[tab] }}</h4>
+      <p>{{ titles[tab] }}</p>
+      <a [routerLink]="['/navigator']" [queryParams]="{ tab: navigatorTabs[tab]}">
+        <span>See all</span>
+      </a>
+    </div>
+  </div>
+</div>
