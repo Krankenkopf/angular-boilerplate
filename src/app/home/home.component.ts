@@ -23,10 +23,10 @@ export class HomeComponent implements OnInit {
     investment: 0,
   };
   navigatorTabs = {
-    income: 1,
-    outcome: 2,
-    loan: 3,
-    investment: 4,
+    income: 0,
+    outcome: 1,
+    loan: 2,
+    investment: 3,
   };
 
   constructor(private transactionsService: TransactionsService) { }
@@ -56,5 +56,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getTransactionsMeta();
   }
-
 }

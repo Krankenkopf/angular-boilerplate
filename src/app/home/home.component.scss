@@ -20,116 +20,42 @@ p {
   margin: 0;
 }
 
-.spacer {
-  flex: 1;
-}
-
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #1976d2;
-  color: white;
-  font-weight: 600;
-}
-
-
 .content {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
   flex-direction: column;
   align-items: center;
 }
 
-svg.material-icons {
-  height: 24px;
-  width: auto;
-}
-
-svg.material-icons:not(:last-child) {
-  margin-right: 8px;
-}
-
-.card svg.material-icons path {
-  fill: #888;
-}
-
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
   margin-top: 16px;
 }
 
 .card {
-  all: unset;
   border-radius: 4px;
   border: 1px solid #eee;
   background-color: #fafafa;
-  width: 200px;
-  margin: 0 8px 16px;
-  padding: 16px;
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
   line-height: 24px;
-}
 
-.card-container .card:not(:last-child) {
-  margin-right: 0;
-}
-
-.card.card-small {
-  width: 168px;
-}
-
-.card-container .card:not(.highlight-card) {
-  cursor: pointer;
-}
-
-.card-container .card:not(.highlight-card):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-}
-
-.card.highlight-card {
-  background-color: #1976d2;
-  color: white;
-  font-weight: 600;
-  border: none;
-  width: auto;
-  min-width: 30%;
-  position: relative;
-}
-
-a,
-a:visited,
-a:hover {
-  color: #1976d2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #125699;
-}
-
-@media screen and (max-width: 767px) {
-  .card-container > *:not(.circle-link) {
-    width: 100%;
+  // .card__title
+  &__title {
+    margin-bottom: 10px;
   }
+}
 
-  .card:not(.highlight-card) {
-    margin: 8px 0;
-  }
+.card-container .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px #0000001a;
+}
 
-  .card.highlight-card span {
-    margin-left: 72px;
-  }
-
+.button-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
 }
