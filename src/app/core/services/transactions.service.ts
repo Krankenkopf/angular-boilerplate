@@ -8,16 +8,26 @@ import * as TRANSACTIONS from 'transactions.json'
 })
 export class TransactionsService {
 
+  cached: { total: number; data: ITransaction[] } | null = null;
+
   constructor() { }
 
   getTransactions() {
+
+    if (this.cached) return this.cached;
+
     let data: ITransaction[] = [];
     const transactions = TRANSACTIONS;
 
     for (let i = 0; i < transactions.data.length; i++) {
-      data.push({ ...transactions.data[i], type: transactions.data[i].type as ITransaction["type"], amount: 400 })
+      data.push({ 
+        ...transactions.data[i], 
+        type: transactions.data[i].type as ITransaction["type"], 
+        amount: ((Math.floor(Math.random() * 400000) + 500) / 100) 
+      })
     }
-
-    return { total: transactions.total, data};
+    
+    this.cached = { total: transactions.total, data};
+    return this.cached
   }
 }

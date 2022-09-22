@@ -1,5 +1,5 @@
 export interface ITransaction {
-  type: "income" | "outcome" | "loan" | "investment";
+  type: TTransactionType
   _id: string;
   amount: number;
   name: { 
@@ -11,3 +11,5 @@ export interface ITransaction {
   phone: string;
   address: string;
 }
+
+export type TTransactionType = "income" | "outcome" | "loan" | "investment";
