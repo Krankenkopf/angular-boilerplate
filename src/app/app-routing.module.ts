@@ -10,8 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'navigator',
-    component: NavigatorComponent
-    
+    component: NavigatorComponent,
   },
 
 ];

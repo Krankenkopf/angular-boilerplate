@@ -1,1 +1,30 @@
-<p>navigator works!</p>
+<nav class="nav mb-4">
+  <a routerLink="/">
+      <button type="button" class="btn btn-primary">
+        Back
+      </button>
+    </a>
+</nav>
+<div class="table">
+  <header class="table__header">
+    <a *ngFor="let tab of tabIndexes" 
+    [routerLink]="['/navigator']" 
+    [queryParams]="{ tab }" 
+    class="header-tab" 
+    routerLinkActive="_active">
+      <div *ngIf="tabTitles[tab] as value" class="header-tab__title">
+        {{ value }}
+      </div>
+    </a>
+  </header>
+  <div class="table__body">
+    <div class="table__row _title">
+      <div>Name</div>
+      <div class="col-right">Amount</div>
+    </div>
+    <div *ngFor="let obj of listByCurrentType" class="table__row">
+      <div>{{ obj.name.first }} {{ obj.name.last }}</div>
+      <div class="col-right">{{ obj.amount.toFixed(2) }}</div>
+    </div>
+  </div>
+</div>
