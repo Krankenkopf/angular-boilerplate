@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+@mixin stretch($prop, $min, $max) {
+  $minWidth: 320;
+  $maxWidth: 1920;
+  $bp3: 767.98;
+  $delta: $max - $min;
+  $deltaMob: $delta + $delta * 0.7;
+ @media (min-width: ($bp3 + px)) {
+   #{$prop}: calc(#{$min + px} + #{$delta} * (100vw / #{$maxWidth}));
+  }
+  @media (max-width: ($bp3 + px)) {
+   #{$prop}: calc(#{$min + px} + #{$deltaMob} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+  }
+}
+
+html {
+  @include stretch(font-size, 12, 18);
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.btn {
+  min-width: 7em;
+}
+
